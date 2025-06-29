@@ -1,26 +1,29 @@
 import { useState } from "react";
 
-function Card({ id, image, info, price, name, removeTour }) {
+function Card({ id, image, info, price, name, removeTour, setTours, tours }) {
   const [readmore, setReadmore] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [bookmarked, setBookmarked] = useState(false); // 👈 new
+
+  const tour = tours.find((t) => t.id === id);
+  const isBookmarked = tour?.isBookmarked || false;
+
+  const toggleBookmark = () => {
+    const updatedTours = tours.map((tour) => {
+      if (tour.id === id) {
+        return { ...tour, isBookmarked: !tour.isBookmarked };
+      }
+      return tour;
+    });
+    setTours(updatedTours);
+  };
 
   const description = readmore ? info : `${info.substring(0, 200)}....`;
-
-  function readmoreHandler() {
-    setReadmore(!readmore);
-  }
-
-  function toggleBookmark() {
-    setBookmarked(!bookmarked);
-  }
 
   return (
     <>
       <div className="card">
-        {/* Bookmark Button */}
         <div className="bookmark-icon" onClick={toggleBookmark}>
-          {bookmarked ? "❤️" : "🤍"}
+          {isBookmarked ? "❤️" : "🤍"}
         </div>
 
         <img
@@ -38,8 +41,8 @@ function Card({ id, image, info, price, name, removeTour }) {
 
           <div className="description">
             {description}
-            <span className="read-more" onClick={readmoreHandler}>
-              {readmore ? `Show Less` : `Read More`}
+            <span className="read-more" onClick={() => setReadmore(!readmore)}>
+              {readmore ? "Show Less" : "Read More"}
             </span>
           </div>
         </div>
@@ -49,7 +52,6 @@ function Card({ id, image, info, price, name, removeTour }) {
         </button>
       </div>
 
-      {/* Modal (unchanged) */}
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

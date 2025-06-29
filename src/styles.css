@@ -1,0 +1,129 @@
+/* App Container */
+.App {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+/* Main container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Title styling */
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #00bfa6;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+/* Cards Grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Individual Card */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Image */
+.image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Tour Info Section */
+.tour-info {
+  padding: 20px;
+  text-align: left;
+}
+
+/* Price and Name */
+.tour-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tour-price {
+  color: #00bfa6;
+  font-weight: bold;
+}
+
+.tour-name {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Description & Read More */
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.read-more {
+  color: #00bfa6;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Button */
+.btn-red {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-red:hover {
+  background-color: #cc0000;
+}
+
+/* No Tours Refresh Section */
+.refresh {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-white {
+  background-color: #00bfa6;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-white:hover {
+  background-color: #008c7a;
+}

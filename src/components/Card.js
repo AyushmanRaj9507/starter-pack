@@ -3,6 +3,7 @@ import { useState } from "react";
 function Card({ id, image, info, price, name, removeTour }) {
   const [readmore, setReadmore] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false); // 👈 new
 
   const description = readmore ? info : `${info.substring(0, 200)}....`;
 
@@ -10,9 +11,18 @@ function Card({ id, image, info, price, name, removeTour }) {
     setReadmore(!readmore);
   }
 
+  function toggleBookmark() {
+    setBookmarked(!bookmarked);
+  }
+
   return (
     <>
       <div className="card">
+        {/* Bookmark Button */}
+        <div className="bookmark-icon" onClick={toggleBookmark}>
+          {bookmarked ? "❤️" : "🤍"}
+        </div>
+
         <img
           src={image}
           className="image"
@@ -39,7 +49,7 @@ function Card({ id, image, info, price, name, removeTour }) {
         </button>
       </div>
 
-      {/* Modal */}
+      {/* Modal (unchanged) */}
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

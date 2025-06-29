@@ -314,3 +314,20 @@
 .dark .modal-close {
   color: #fff;
 }
+.bookmark-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.bookmark-icon:hover {
+  transform: scale(1.2);
+}
+
+.card {
+  position: relative; /* needed for .bookmark-icon */
+}

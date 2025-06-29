@@ -167,3 +167,29 @@
 .btn-toggle:hover {
   background-color: #555;
 }
+.btn-dark-toggle {
+  margin: 20px auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dark-toggle:hover {
+  background-color: #444;
+}
+
+.dark .btn-dark-toggle {
+  background-color: #eee;
+  color: #222;
+}
+
+.dark .btn-dark-toggle:hover {
+  background-color: #ccc;
+}

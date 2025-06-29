@@ -32,11 +32,12 @@ const App = () => {
 
   return (
     <div className={`App ${darkMode ? "dark" : ""}`}>
-      <button className="btn-toggle" onClick={toggleDarkMode}>
-        {darkMode ? "Light Mode" : "Dark Mode"}
+      <button className="btn-dark-toggle" onClick={toggleDarkMode}>
+        {darkMode ? "☀️ Disable Dark Mode" : "🌙 Enable Dark Mode"}
       </button>
       <Tours tours={tours} removeTour={removeTour} />
-    </div>
+  </div>
+
   );
 };
 

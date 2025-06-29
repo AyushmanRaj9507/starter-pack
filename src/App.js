@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from './data';
 import Tours from "./components/Tours";
 import './styles.css';
@@ -7,6 +7,11 @@ const App = () => {
   const [tours, setTours] = useState(data);
   const [searchTerm, setSearchTerm] = useState('');
   const [showOnlyBookmarked, setShowOnlyBookmarked] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark" : "";
+  }, [darkMode]);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -41,6 +46,14 @@ const App = () => {
 
   return (
     <div className="App">
+      <button
+        className="btn-toggle"
+        onClick={() => setDarkMode(!darkMode)}
+        style={{ float: "right", marginRight: "20px", marginTop: "10px" }}
+      >
+        {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
+      </button>
+
       <input
         type="text"
         placeholder="🔍 Search places..."

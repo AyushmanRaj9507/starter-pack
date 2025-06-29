@@ -5,11 +5,19 @@
   background-color: #f2f2f2;
 }
 
+.dark .App {
+  background-color: #1e1e1e;
+}
+
 /* Main container */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
+}
+
+.dark .container {
+  background-color: transparent;
 }
 
 /* Title styling */
@@ -41,10 +49,16 @@
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .card:hover {
   transform: scale(1.02);
+}
+
+.dark .card {
+  background-color: #2b2b2b;
+  color: #f1f1f1;
 }
 
 /* Image */
@@ -77,11 +91,19 @@
   color: #333;
 }
 
+.dark .tour-name {
+  color: #f1f1f1;
+}
+
 /* Description & Read More */
 .description {
   font-size: 0.95rem;
   color: #666;
   line-height: 1.5;
+}
+
+.dark .description {
+  color: #ddd;
 }
 
 .read-more {
@@ -108,6 +130,10 @@
   background-color: #cc0000;
 }
 
+.dark .btn-red {
+  background-color: #ff6666;
+}
+
 /* No Tours Refresh Section */
 .refresh {
   text-align: center;
@@ -128,45 +154,30 @@
   background-color: #008c7a;
 }
 
-/* === Dark Mode Styles === */
-.dark {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-.dark .card {
-  background-color: #2b2b2b;
-  color: #f1f1f1;
-}
-
-.dark .tour-name {
-  color: #f1f1f1;
-}
-
-.dark .btn-red {
-  background-color: #ff6666;
-}
-
 .dark .btn-white {
   background-color: #444;
 }
 
+/* Dark Mode Toggle */
 .btn-toggle {
   margin: 15px auto;
-  display: block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
+  padding: 10px 25px;
+  font-weight: 600;
   font-size: 1rem;
-  border-radius: 6px;
   border: none;
+  border-radius: 10px;
+  background-color: #00bfa6;
+  color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .btn-toggle:hover {
-  background-color: #555;
+  background-color: #019983;
 }
+
+/* Special Dark Mode Toggle Button */
 .btn-dark-toggle {
   margin: 20px auto;
   display: block;
@@ -193,30 +204,10 @@
 .dark .btn-dark-toggle:hover {
   background-color: #ccc;
 }
+
+/* Search Bar */
 .search-bar {
   display: block;
-  margin: 20px auto;
-  padding: 12px 16px;
-  width: 300px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.3s ease;
-}
-
-.search-bar:focus {
-  border-color: #00bfa6;
-  box-shadow: 0 0 8px rgba(0, 191, 166, 0.4);
-}
-
-.dark .search-bar {
-  background-color: #333;
-  color: white;
-  border-color: #555;
-}
-/* Base Style */
-.search-bar {
   margin: 30px auto;
   padding: 14px 20px;
   width: 320px;
@@ -232,14 +223,12 @@
   text-align: center;
 }
 
-/* On Focus Animation */
 .search-bar:focus {
   width: 400px;
   background-color: white;
   box-shadow: 0 0 12px rgba(0, 191, 166, 0.6);
 }
 
-/* Icon glow effect */
 .search-bar::placeholder {
   color: #888;
   font-style: italic;
@@ -250,11 +239,11 @@
   color: #00bfa6;
 }
 
-/* Dark Mode Friendly */
 .dark .search-bar {
   background: rgba(50, 50, 50, 0.4);
   color: white;
   box-shadow: 0 4px 20px rgba(255,255,255,0.05);
+  border-color: #555;
 }
 
 .dark .search-bar:focus {
@@ -265,6 +254,23 @@
 .dark .search-bar::placeholder {
   color: #aaa;
 }
+
+/* Bookmark Icon */
+.bookmark-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.bookmark-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -288,6 +294,10 @@
   background-color: #fff;
 }
 
+.dark .modal-content {
+  background-color: #222;
+}
+
 .modal-img {
   width: 100%;
   height: auto;
@@ -306,62 +316,6 @@
   z-index: 1000;
 }
 
-/* Dark mode support */
-.dark .modal-content {
-  background-color: #222;
-}
-
 .dark .modal-close {
   color: #fff;
-}
-.bookmark-icon {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.2s;
-}
-
-.bookmark-icon:hover {
-  transform: scale(1.2);
-}
-
-.card {
-  position: relative; /* needed for .bookmark-icon */
-}
-.btn-toggle {
-  margin: 15px auto;
-  padding: 10px 25px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  background-color: #00bfa6;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-toggle:hover {
-  background-color: #019983;
-}
-
-.bookmark-icon {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.2s;
-}
-
-.bookmark-icon:hover {
-  transform: scale(1.2);
-}
-
-.card {
-  position: relative;
 }
